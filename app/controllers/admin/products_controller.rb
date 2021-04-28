@@ -40,7 +40,6 @@ class Admin::ProductsController < ApplicationController
   end
 
   def authenticate
-    # http_basic_authenticate_with name: ENV['USERNAME'], password: ENV['PASSWORD'], except: :index
     authenticate_or_request_with_http_basic do |username, password|
       username == ENV["USERNAME"] && password == ENV["PASSWORD"]
     end
