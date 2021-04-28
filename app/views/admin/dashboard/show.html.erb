@@ -1,2 +1,23 @@
-<h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+<div class="dashboard-header">
+  <div class="dashboard-header-text">
+    <h1>Dashboard</h1>
+    <h3>Product & category stats</h3>
+  </div>
+</div>
+
+<div class="dashboard-centering">
+<table class="table dashboard-table">
+  <thead>
+  <tr>
+    <th class="dashboard-table-heading" scope="col">Products</th>
+    <th class="dashboard-table-heading" scope="col">Categories</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td class="dashboard-table-data"><%= @products.count %></td>
+    <td class="dashboard-table-data"><%= @categories.count %></td>
+  </tr>
+  </tbody>
+</table>
+</div>
