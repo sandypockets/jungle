@@ -1,7 +1,6 @@
 class Admin::ProductsController < ApplicationController
 
-  http_basic_authenticate_with name: "Jungle", password: "book", except: :index
-
+  before_action :authenticate
 
   def index
     @products = Product.order(id: :desc).all
@@ -38,6 +37,13 @@ class Admin::ProductsController < ApplicationController
       :image,
       :price
     )
+  end
+
+  def authenticate
+    # http_basic_authenticate_with name: ENV['USERNAME'], password: ENV['PASSWORD'], except: :index
+    authenticate_or_request_with_http_basic do |username, password|
+      username == ENV["USERNAME"] && password == ENV["PASSWORD"]
+    end
   end
 
 end
