@@ -1,5 +1,11 @@
 <section class="cart-show">
 
-  <%= render partial: 'cart_details' %>
+  <% if enhanced_cart.present? %>
+    <%= render partial: 'cart_details' %>
+  <% else %>
+    <div class="alert alert-warning">
+      <%= link_to "Your cart is currently empty. Go pick out something nice.", :products %>
+    </div>
+  <% end %>
 
 </section>
