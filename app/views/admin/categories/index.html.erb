@@ -1,1 +1,22 @@
-<h1>Categories</h1>
+<section class="admin-products-index">
+
+  <header class="page-header">
+    <h1>Admin &raquo; Manage Categories</h1>
+  </header>
+
+  <div class="well">
+    <%= link_to '+ New Category', [:new, :admin, :category], class: 'btn btn-info' %>
+  </div>
+
+
+  <h3 class="admin-categories-subheading">Current Categories</h3>
+    <div class="admin-categories-list">
+      <ul>
+        <% @categories.each do |category| %>
+          <li><%= category.name %></li>
+        <% end %>
+      </ul>
+    </div>
+
+
+</section>
