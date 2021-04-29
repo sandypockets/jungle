@@ -8,10 +8,10 @@ class SessionsController < ApplicationController
     # Actually try to login
     @form_data = params.require(:session)
     # Pull username and password from form
-    @username = @form_data[:username]
+    @email = @form_data[:email]
     @password = @form_data[:password]
     # Authenticate
-    @user = User.find_by(username: @username).try(:authenticate, @password)
+    @user = User.find_by(email: @email).try(:authenticate, @password)
     # If user exists, login and show homepage.
     if @user
       # Save this user to that user's session

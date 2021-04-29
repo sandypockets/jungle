@@ -3,6 +3,27 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+
+  # Before any page loads, find the current user
+  before_action :find_current_user
+
+  # Add in the method to use in the other views
+  helper_method :is_logged_in?
+
+  def find_current_user
+    @current_user = User.find(session[:user_id]) if is_logged_in?
+  end
+
+  def check_login
+    redirect_to new_session_path unless is_logged_in?
+  end
+
+  # Is the person logged in
+  def is_logged_in?
+    session[:user_id].present?
+  end
+
+
   private
 
   def cart

@@ -41,6 +41,15 @@
             <li><%= link_to 'Products',  [:admin, :products] %></li>
           </ul>
         </li>
+
+        <% if is_logged_in? %>
+          <li class="li-hello-name">Hi <%= @current_user.first_name.capitalize %></li>
+          <li><%= link_to 'Logout', session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'Sign up', new_user_path %></li>
+          <li><%= link_to 'Login', new_session_path %></li>
+        <% end %>
+
         <li>
           <%= link_to cart_path do %>
             <%= fa_icon "shopping-cart" %> My Cart (<%= cart.size %>)
