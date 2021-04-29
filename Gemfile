@@ -25,6 +25,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+# Add in simple_form for user creation and auth
+gem 'simple_form'
 
 gem 'puma'
 
