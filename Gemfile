@@ -60,3 +60,9 @@ group :production do
   gem 'newrelic_rpm'
   gem 'rails_12factor'
 end
+
+# rspec gem for running tests
+group :development, :test do
+  gem 'rspec-rails', '~> 3.5'
+  # ...
+end
