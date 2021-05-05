@@ -4,6 +4,36 @@ A mini ecommerce application, built with Rails 4.2. The purpose of this app was 
 
 ![https://github.com/sandypockets/jungle/blob/master/docs/jungle-demo-screenshot.png?raw=true](https://github.com/sandypockets/jungle/blob/master/docs/jungle-demo-screenshot.png?raw=true)
 
+## New Features and Bug Fixes
+#### Feature: Sold Out Badge
+- When a product has 0 quantity, a sold out badge should be displayed on the product list page
+
+#### Feature: Admin Categories
+- Admin users can list and create new categories
+- Admins can add new products using the new category
+- Restful routes (resources)
+- All admin controllers inherit from `Admin::BaseController` containing the authentication filter
+
+#### Feature: User Authentication
+- A visitor can go to the registration page from any page in order to create an account
+- A visitor can sign up for a user account with their e-mail, password, first name and last name
+- A visitor can sign in using their e-mail and password
+- A user can log out from any page
+- A user cannot sign up with an existing e-mail address (uniqueness validation)
+- Passwords are not stored as plain text in the database. Instead, `has_secure_password` is used in the User model, leveraging the bcrypt gem
+
+#### Enhancement: Order Details Page
+- The order page contains items, their image, name, description, quantities and line item totals
+- The final amount for the order is displayed
+- The email that was used to place the order is displayed
+
+#### Bug Fix: Missing Admin Security
+- User must enter HTTP auth login/password to access admin functionality
+
+#### Bug Fix: Checking Out with Empty Cart
+- When the cart is empty and the user goes to the `carts#show` page, instead of displaying the contents and a Stripe checkout button, display a friendly message and link to the home page
+---
+
 ## Getting Started
 
 #### Additional Steps for Apple M1 Machines
