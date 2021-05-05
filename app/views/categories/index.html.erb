@@ -6,18 +6,17 @@
 
   <div class="well">
     <%= link_to '+ New Category', [:new, :admin, :category], class: 'btn btn-info' %>
-    <%= link_to '+ New Product', [:new, :admin, :product], class: 'btn btn-info' %>
   </div>
 
 
   <h3 class="admin-categories-subheading">Current Categories</h3>
-    <div class="admin-categories-list">
-      <ul>
-        <% @categories.each do |category| %>
-          <li><%= category.name %></li>
-        <% end %>
-      </ul>
-    </div>
+  <div class="admin-categories-list">
+    <ul>
+      <% @categories.each do |category| %>
+        <li><%= category.name %></li>
+      <% end %>
+    </ul>
+  </div>
 
 
 </section>
